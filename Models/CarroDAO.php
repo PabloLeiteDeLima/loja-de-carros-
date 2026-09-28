@@ -29,12 +29,18 @@ class CarroDAO{
         $stmt->bindValue(":cambio", $objCarro->getCambio(), PDO::PARAM_STR);
         $stmt->bindValue(":observacoes", $objCarro->getObservacoes(), PDO::PARAM_STR);
 
-        return $stmt->execute();
+        return $stmt->execute();        
 
     }//fechamento da função CriarCarro().
 
     // Método para Listar o Bando de Dados.(Read)...?.
+    public function ListarCarros():array{
 
+        // Usando query() diretamente e retornando o resultado sem criar variáveis extras
+        $stmt = $this->conn->query("SELECT * FROM tb_carro");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+    }//fechamento da função ListarCarros().
 
 }//fechamento da classe CarroDAO().
 

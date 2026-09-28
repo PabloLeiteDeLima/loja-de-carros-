@@ -1,6 +1,12 @@
 <?php 
 
 // requisições necessárias...
+require_once("../Models/CarroDAO.php");
+require_once("../Config/Conexao.php");
+
+// pegando objeto do banco de dados via DAO.
+$objCarroDAO = new CarroDAO(Conexao::getConexao());
+$carro1 = $objCarroDAO->ListarCarros();
 
 ?>
 
@@ -31,6 +37,7 @@
     <div class="table-responsive">
         <table class="dados-tabela">
             <thead>
+
                 <tr>
                     <th>Código</th>
                     <th>Marca</th>
@@ -40,8 +47,39 @@
                     <th>Câmbio</th>
                     <th>Preço</th>
                     <th>Observações</th>
-                    <th class="text-center">Ações</th>
+                    <th class="text-center" colspan="2">Ações</th>
                 </tr>
+
+                <?php
+                    foreach($carro1 as $carro){ 
+                ?>
+
+                <tr>
+                    <td><?php echo $carro['id_carro']  ?></td>
+                    <td><?php echo $carro['marca'] ?></td>
+                    <td><?php echo $carro['modelo'] ?></td>
+                    <td><?php echo $carro['ano'] ?></td>
+                    <td><?php echo $carro['placa'] ?></td>
+                    <td><?php echo $carro['cambio'] ?></td>
+                    <td><?php echo $carro['preco'] ?></td>
+                    <td><?php echo $carro['observacoes'] ?></td>
+                    <td>
+                        <a href="formAtualizarCarro.php?id_carro=<?php echo $carro['id_carro'] ?>">
+                            Atualizar
+                        </a>
+                    </td>
+                    <td>
+                        <a href="../Controllers/DeletarCarro.php?id_carro=<?php echo $carro['id_carro'] ?>" 
+                            onclick="return confirm('Tem certeza que deseja deletar este carro?');">
+                            Deletar
+                        </a>
+                    </td>
+                </tr>
+
+                <?php 
+                    }
+                ?>
+
             </thead>
             <tbody>
     
@@ -50,6 +88,10 @@
         </table>
     </div>
 </div>
+
+
+
+
 
 <script src="../public/js/script-lista-carro.js" defer></script>
 </body>

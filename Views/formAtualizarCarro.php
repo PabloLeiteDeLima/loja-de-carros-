@@ -1,3 +1,16 @@
+<?php 
+
+// requisições necessárias...
+require_once("../Models/CarroDAO.php");
+require_once("../Config/Conexao.php");
+
+$id_carro = $_GET['id_carro'];
+echo 'id_carro: ' . $id_carro;
+
+$objCarroDAO = new CarroDAO(Conexao::getConexao());
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
