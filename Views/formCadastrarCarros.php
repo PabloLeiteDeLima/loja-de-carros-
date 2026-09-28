@@ -20,7 +20,7 @@
     </div>
 
     <!-- ACTION FIXADO PARA INSERÇÃO -->
-    <form id="formCarro" action="../controllers/RecFormInserirCarro.php" method="POST" novalidate>
+    <form id="formCarro" action="../controllers/RecFormCriarCarro.php" method="POST" novalidate>
         
         <div class="form-grid">
             

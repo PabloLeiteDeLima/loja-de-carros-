@@ -11,8 +11,8 @@ class Carro{
     private string $cambio;
     private string $observacoes;
 
-    // Método construtor.
-    public function __construct($marca, $modelo, $ano, $placa, $preco, $cambio, $observacoes){
+    // Método construtor. (=null -> para dizer: caso não venha valor... aceite o valor null.);
+    public function __construct($marca = null, $modelo = null, $ano = null, $placa = null, $preco = null, $cambio = null, $observacoes = null){
         $this->marca = $marca;
         $this->modelo = $modelo;
         $this->ano = $ano;
@@ -50,7 +50,7 @@ class Carro{
     }
 
     // Métodos sets...
-    public function setId(int $id):void{
+    public function setId(int $id):void{ // :void -> indica o tipo de rretorno do método. (PHP 8.4)
         $this->id = $id;
     }
     public function setMarca(string $marca):void{

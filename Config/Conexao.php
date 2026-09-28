@@ -7,11 +7,11 @@ class Conexao{
     private static string $port = "3306";
     private static string $user = "root";
     private static string $pass = "";
-    private static string $dbname = "#"; //****SE LIGA: FALTANDO CRIAR O BANCO DE DADOS****
+    private static string $dbname = "projetolojacarros";
 
-    private static $instance = null;
+    private static ?PDO $instance = null; // ?PDO ->significa: que aceita a classe PDO ou nulo, ou seja, é a tipagem. PHP 8.4
 
-    public static function getConexao() {
+    public static function getConexao():PDO { // indica o tipo de retorno do método (PHP 8.4)
         if (self::$instance === null) {
             try {
                 // String de conexão direta
