@@ -2,14 +2,14 @@
 // Criação da classe.
 class Carro{
     // Atributos...
-    private int $id;
-    private string $marca;
-    private string $modelo;
-    private int $ano;
-    private string $placa;
-    private string $preco;
-    private string $cambio;
-    private string $observacoes;
+    private ?int $id;  // Ao colocar o '?' antes do 'tipo' voce diz explicitamente ao PHP 8.4
+    private ?string $marca; // que esta propriedade aceita texto/int/float... ou null
+    private ?string $modelo;
+    private ?int $ano;
+    private ?string $placa;
+    private ?string $preco;
+    private ?string $cambio;
+    private ?string $observacoes;
 
     // Método construtor. (=null -> para dizer: caso não venha valor... aceite o valor null.);
     public function __construct($marca = null, $modelo = null, $ano = null, $placa = null, $preco = null, $cambio = null, $observacoes = null){
