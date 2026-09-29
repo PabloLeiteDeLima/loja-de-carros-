@@ -12,6 +12,6 @@ $objCarroDAO = new CarroDAO(Conexao::getConexao());
 $objCarroDAO->deletarCarro($id_carro);
 
 // rredirecionamento para página visualizarCarro.php
-header("location:../views/visualizarCarro.php");
+header("location:../views/visualizarCarros.php");
 
 ?>
